@@ -19,3 +19,11 @@
 - Fait par l'intégrateur : vision recopiée dans AGENTS.md et la description de harnais.toml (question-1, option recommandée, appliquée en attendant) ; question-4 posée (« pilote » désigne à la fois la personne qui se sert du produit et celle qui pilote le harnais).
 - Blocages par un contrôle : aucun.
 - Livré : un commit sur main.
+
+## 2026-10-30, integrateur : porte-engagement des deux premiers changements
+
+- 08:37 et 09:37 : deux états demandés par le pilote. Trouvé : l'étude a ouvert `ajouter-une-tache` et `joindre-des-fichiers`, modifié SPEC.md (boîte d'entrée, note rapide, capacité « Tâches ») et ajouté deux questions, la première numérotée 4 en double. À 09:37, réponses « (a) » aux deux engagements, soit le parking, contraire à la recommandation, pendant que l'étude rouvrait l'entretien (tour 4) ; rien acté, confirmation demandée.
+- 12:36 : le pilote dit avoir signé l'entretien d'`ajouter-une-tache`, choisit (b) pour les deux engagements avec les recommandations, répond « A1 et B1, et oui au sondage » à la question-2, et demande de tout commiter.
+- Fait : Décision du pilote remplie dans les deux proposal.md ; decision-2 à decision-5 ; trois lignes au registre des dépendances ; choix reporté dans design.md ; questions 2, 4, 5 et 6 actées, celles de l'étude renumérotées 5 et 6 ; « Utilisateur » ajouté aux mots et « le pilote » remplacé par « l'utilisateur » dans les scénarios des deltas (question-4, (a)) ; ROADMAP.md avec jalon-1, jalon-2 et deux entrées au parking ; ETAT.md.
+- Pas fait : tasks.md et TACHES.md, qui attendent le sondage ; CONTRAT.md, la zone de code, check.ps1 et SECURITY.md, qui attendent l'ouverture de jalon-1.
+- Blocages par un contrôle : aucun.

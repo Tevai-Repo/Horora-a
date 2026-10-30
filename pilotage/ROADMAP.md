@@ -4,9 +4,12 @@
 
 | Jalon | Contenu | Critère visible | État |
 |---|---|---|---|
+| `jalon-1` | `ajouter-une-tache` (decision-2), pile A1 et B1 (decision-3) | Horora'a installé sur le téléphone et l'ordinateur ; une tâche dite en une phrase, rangée au bon endroit, retrouvée sur l'autre appareil | À faire : tâches après le sondage de l'étude |
+| `jalon-2` | `joindre-des-fichiers` (decision-4) | une capture collée sur l'ordinateur, vue sur le téléphone | À faire, après jalon-1 |
 
-Aucun jalon ouvert : le premier naît du premier changement, après SPEC.md sections 1, 2, 4 et 7.
+Changements annoncés par le pilote, pas encore instruits, dans l'ordre (question-entretien-53) : « ranger » (vue par étiquette, recherche, renommer et déplacer ; prototype jetable avant la spec), « dater », « parler ».
 
 ## Parking (idées hors périmètre, jamais implémentées sans décision)
 
-Rien pour l'instant.
+- Garder sur l'appareil une tâche dite sans Internet pour l'envoyer plus tard (`ajouter-une-tache`, point de détail, decision-2).
+- L'aperçu des PDF et documents bureautiques (`joindre-des-fichiers`, option (c), decision-4).
