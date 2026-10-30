@@ -1,0 +1,15 @@
+# Carte d'identité de cette base, lue par le Poste et par les humains. Kit v0, installé le 2026-10-29.
+nom = "Horora'a"
+etage = 1
+origine = "neuf"                   # dépôt vide à l'installation : aucun code antérieur au Kit (decision-fabrication-12)
+description = "à écrire par le pilote : ce que le logiciel fait, pour qui (question-1)"
+pilote = "Tevai"
+mere = "mere"                      # pilotage/roles/mere.md
+main_qui_ecrit = "integrateur"     # pilotage/roles/integrateur.md
+documentaliste = "dormant"         # "actif" quand le rôle est installé
+roles = ["integrateur", "developpeur", "qa", "etude", "mere"]   # immuable : chaque rôle déclaré a son fichier pilotage/roles/<nom>.md et réciproquement (controle-kit) ; "developpeur" appliqué en attendant le nom de la zone (question-2)
+base = "pilotage/, reflexion/"
+livre_a = ["Fabrication"]          # appliqué en attendant : projet-école, premier banc d'essai du Kit (decision-fabrication-19) ; question-1
+kit_version = "0"                  # trace de la porte-kit, avec la date dans DECISIONS.md (decision-1)
+specs = "openspec/specs/"          # la vérité produit, une capacité par dossier (decision-fabrication-8, decision-fabrication-9)
+openspec = "1.14.3"                # version du programme sur le poste du pilote, celle du registre des dépendances

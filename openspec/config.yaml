@@ -1,0 +1,35 @@
+# Une règle qui contient « : » suivi d'une espace se met entre guillemets, sinon YAML la lit comme un couple et le programme l'ignore (sondage du 2026-10-27).
+schema: harnais
+
+context: |
+  Tout en français : artefacts, exigences, scénarios, tâches. Seuls les en-têtes que le programme lit restent en anglais :
+  Requirement, Scenario, WHEN, THEN, Purpose, Requirements, ADDED/MODIFIED/REMOVED/RENAMED Requirements.
+  Le mot-clé normatif s'écrit « DOIT (MUST) ».
+  AGENTS.md et pilotage/SPEC.md font foi : les mots sont ceux de la section « Les mots » de SPEC.md,
+  les invariants sont ceux de sa section « Invariants », le hors périmètre est fermé.
+  La spec suffit à régénérer le logiciel pour l'utilisateur (decision-fabrication-8) : une exigence dit un comportement observable,
+  jamais une classe, une bibliothèque ou une étape d'implémentation.
+  La barre de précision est la liste de test du pilote : chaque scénario cite le point de test qu'il sert, « (test-<n>) ».
+
+rules:
+  entretien:
+    - Une question à la fois par ligne, numérotée, avec sa réponse recommandée ; les faits se cherchent dans les fichiers, jamais demandés.
+    - Chaque réponse porte « confirmée » ou « acceptée par défaut ».
+  proposal:
+    - Toujours l'option minimale et l'option « ne rien faire ».
+    - "Chaque option : part de marge sur chaque budget, durée par comparaison avec une tâche mesurée du projet, jamais dans l'absolu."
+    - Capacités non touchées listées avec leur raison ; invariants liés cités, tenus ou modifiés.
+    - Une page ou deux.
+  specs:
+    - Un scénario d'échec pour toute exigence qui peut échouer ; un scénario « sans réglage » pour toute exigence qui a une valeur par défaut.
+    - Un MODIFIED porte le bloc entier, tous ses scénarios compris.
+  tasks:
+    - Chaque case dit comment on vérifie qu'elle est faite.
+
+operations:
+  apply:
+    guidance:
+      - Le check complet est vert avant de cocher une case ; une idée hors du changement va au parking, jamais dans le code.
+  archive:
+    guidance:
+      - Seul l'intégrateur archive, après le test du pilote ; les mots nouveaux de la proposition sont reportés dans SPEC.md, section « Les mots ».

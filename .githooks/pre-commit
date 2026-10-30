@@ -1,0 +1,35 @@
+#!/usr/bin/env sh
+# Hook pre-commit du Kit v0 (2026-10-21), copie de FANA. Versionne. Activation : git config core.hooksPath .githooks
+# Fichier du Kit : son nom est impose par git, donc sans suffixe .kit, mais son empreinte est dans harnais.lock ;
+# il ne se modifie que par la porte-kit. Ce qui est propre au projet (formatage, controles) vit dans scripts/check.ps1.
+# Etapes : controle-conflit (marqueurs de conflit), puis verification rapide check.ps1 -Fast, qui appelle check.kit.ps1.
+# Le check complet (compilation, tests, audit) reste manuel.
+
+set -e
+cd "$(git rev-parse --show-toplevel)"
+
+# --- controle-conflit : aucun marqueur de conflit dans un fichier indexe --------------
+# On lit la version indexee (`git grep --cached`), pas la copie de travail ; -I ignore les binaires.
+# Bloquent toujours : une ligne qui commence par sept `<` ou sept `>` suivis d'une espace ou de la fin
+# de ligne. `=======` et `|||||||` ne bloquent qu'entre les deux : seul, `=======` est un titre Markdown.
+conflits=$(git -c core.quotePath=false diff --cached --name-only -z --diff-filter=ACMR \
+  | xargs -0 -r git -c core.quotePath=false grep --cached -I -n -E \
+      '^(<{7}|={7}|[|]{7}|>{7})([[:space:]]|$)' -- \
+  | awk '{
+      f = $0; sub(/:.*/, "", f)
+      r = substr($0, length(f) + 2)
+      n = r; sub(/:.*/, "", n)
+      c = substr(r, length(n) + 2); sub(/\r$/, "", c)
+      m = substr(c, 1, 7)
+      if (m == "<<<<<<<") ouvert[f] = 1
+      if (m == "<<<<<<<" || m == ">>>>>>>" || ouvert[f]) print f ", ligne " n " : " substr(c, 1, 60)
+      if (m == ">>>>>>>") ouvert[f] = 0
+    }')
+if [ -n "$conflits" ]; then
+  printf '%s\n' "$conflits" | sed 's/^/controle-conflit : marqueur de conflit dans /' >&2
+  echo "controle-conflit : resoudre le conflit, puis reindexer le fichier (git add). Motif : pilotage/CONTROLES.md" >&2
+  exit 1
+fi
+
+# --- Verification rapide : la partie Kit puis la partie projet, dans scripts/check.ps1 -----------
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check.ps1 -Fast

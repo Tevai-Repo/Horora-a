@@ -1,0 +1,71 @@
+{
+  "env": {
+    "OPENSPEC_NO_UPDATE_CHECK": "1"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(powershell -File scripts/check.ps1)",
+      "Bash(powershell -File scripts/check.ps1 -Fast)",
+      "Bash(openspec validate *)",
+      "Bash(openspec list *)",
+      "Bash(openspec show *)",
+      "Bash(openspec status *)",
+      "Bash(git status *)",
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git diff)",
+      "Bash(git log *)",
+      "Bash(git log)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git branch *)",
+      "Bash(git branch)",
+      "Bash(git worktree *)",
+      "Bash(git switch *)",
+      "Bash(git checkout -b *)",
+      "Bash(git merge *)",
+      "Bash(git push *)",
+      "Bash(git fetch *)"
+    ],
+    "deny": [
+      "Bash(git push --force *)",
+      "Bash(git push -f *)",
+      "Bash(git reset --hard *)",
+      "Bash(git clean -fd *)",
+      "Bash(git branch -D *)",
+      "Bash(git worktree remove --force *)",
+      "Bash(git commit --no-verify *)",
+      "Bash(git commit -n *)",
+      "Bash(winget *)",
+      "Bash(choco *)",
+      "Bash(npm install -g *)",
+      "PowerShell(winget *)",
+      "PowerShell(choco *)",
+      "PowerShell(npm install -g *)",
+      "Read(./reflexion/**)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"hookSpecificOutput\": {\"hookEventName\": \"SessionStart\", \"additionalContext\": \"Session reprise apres un compactage : relis ton fichier de role dans pilotage/roles/ avant toute action (AGENTS.md, protocole 11), et garde ses consignes de forme.\"}}'"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"systemMessage\": \"Rappel : mettre a jour pilotage/ETAT.md et pousser les branches si fin de session integrateur.\"}'"
+          }
+        ]
+      }
+    ]
+  }
+}

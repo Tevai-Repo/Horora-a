@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+# Hook commit-msg du Kit v0 (2026-10-21), copie de FANA. Versionne. Activation : git config core.hooksPath .githooks
+# Impose : <jalon>(<zone>): description   ex. jalon-1(rust): rendu comrak du fichier ouvert
+# Jalon : le motif JALONS ci-dessous, ou "harnais". Zone : la liste ZONES. Adaptes a Horora'a le 2026-10-29.
+# Les commits de fusion et de revert de git passent sans controle.
+
+JALONS='jalon-[0-9]+'
+ZONES='developpeur|qa|pilotage|outillage'    # zones de la carte de propriete d'AGENTS.md ; developpeur a renommer avec la zone (question-2)
+
+msg_file="$1"
+first_line=$(head -n 1 "$msg_file")
+
+case "$first_line" in
+  Merge*|Revert*) exit 0 ;;
+esac
+
+if ! printf '%s\n' "$first_line" | grep -Eq "^($JALONS|harnais)\(($ZONES)\): .{5,}"; then
+  echo "commit-msg : format attendu  <jalon>(<zone>): description" >&2
+  echo "             jalon = $JALONS ou harnais ; zone = $ZONES" >&2
+  echo "             recu : $first_line" >&2
+  exit 1
+fi

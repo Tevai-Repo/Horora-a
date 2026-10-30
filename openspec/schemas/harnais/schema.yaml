@@ -1,0 +1,89 @@
+# Schéma « harnais » : fork de spec-driven (OpenSpec 1.14.3), Kit v0, 2026-10-22 (decision-fabrication-9).
+# Cinq artefacts : entretien, proposal, specs, design, tasks. À valider par `openspec schema validate harnais`
+# au sondage ; l'identifiant « entretien », hors des quatre intégrés, est à confirmer. Un fork est un instantané :
+# `openspec update` n'y touche plus, c'est le Kit qui en est propriétaire.
+name: harnais
+version: 1
+description: Workflow du harnais - entretien → proposition → deltas de specs → conception → tâches
+artifacts:
+  - id: entretien
+    generates: entretien.md
+    description: La trace de l'interrogatoire, temps 1 de l'étude
+    template: entretien.md
+    instruction: |
+      Mène l'interrogatoire par la frontière : à chaque tour, pose toutes les questions dont les prérequis
+      sont réglés, numérotées question-1, question-2…, chacune avec une réponse recommandée telle qu'un « oui » l'accepte.
+      Une question dont le prérequis est ouvert attend le tour suivant. Les faits (ce qui est dans les
+      fichiers, le code, les specs) se cherchent et ne se demandent jamais ; les décisions reviennent au
+      pilote. Écris chaque réponse dès qu'elle est donnée, avec « confirmée » ou « acceptée par défaut ».
+      Fin quand la frontière est vide : rien d'implicite. Termine par l'épreuve d'intention, cinq lignes,
+      que le pilote signe ou non. Aucun autre artefact avant la signature.
+    requires: []
+
+  - id: proposal
+    generates: proposal.md
+    description: Pourquoi, quoi, ce que ça ne doit pas devenir, les options, la décision du pilote
+    template: proposal.md
+    instruction: |
+      Écris la proposition depuis entretien.md, sans nouvelle question. Sections : Why (pourquoi) ; What Changes (ce qui change), ces deux en-têtes en anglais parce que le programme les lit ;
+      Ce que ça ne doit pas devenir ; Mots (ajoutés ou modifiés dans « Les mots » de SPEC.md) ; Capacités
+      (nouvelles, modifiées, et non touchées avec leur raison : toute capacité dont la spec emploie un mot
+      que le changement touche doit figurer dans l'une des trois listes) ; Invariants liés, tenus ou
+      modifiés ; Options, toujours la minimale et « ne rien faire », chacune chiffrée en part de marge sur
+      les budgets et en durée par comparaison ; Impact sur CONTRAT et les frontières de confiance ;
+      Décision du pilote, laissée vide : l'intégrateur la remplit après porte-engagement avec la date, l'option retenue
+      et le numéro decision-<n>. Une capacité est un nom que l'utilisateur emploie, objet ou endroit ; une exigence
+      est un verbe. Lance `openspec list --specs` avant de nommer une capacité ; réutilise le chemin exact.
+    requires:
+      - entretien
+
+  - id: specs
+    generates: "specs/**/*.md"
+    description: Les deltas d'exigences, un fichier par capacité touchée
+    template: spec.md
+    instruction: |
+      Un fichier specs/<capacité>/spec.md par capacité nouvelle ou modifiée de la proposition. Une exigence
+      dit un comportement observable par l'utilisateur, avec « DOIT (MUST) » ; si l'implémentation peut
+      changer sans que l'utilisateur voie la différence, ce n'est pas une exigence. Chaque exigence a au
+      moins un scénario « #### Scenario: <nom> (test-<n>) » avec « - **WHEN** » et « - **THEN** », qui cite le
+      point de la liste de test qu'il sert ; un scénario d'échec si elle peut échouer ; un scénario « sans
+      réglage » si elle a une valeur par défaut. Capacité nouvelle : la première section est « ## Purpose ».
+      MODIFIED : copie le bloc entier depuis openspec/specs/, tous scénarios compris, puis modifie.
+      REMOVED : Reason et Migration. Les en-têtes restent en anglais ; le corps est en français.
+    requires:
+      - proposal
+
+  - id: design
+    generates: design.md
+    description: Les choix techniques internes au changement, seulement s'il y en a
+    template: design.md
+    instruction: |
+      Seulement si le changement traverse plusieurs zones, ajoute une dépendance, touche la sécurité, la
+      performance ou une migration, ou lève une ambiguïté technique. Sections : Contexte ; Objectifs et
+      non-objectifs ; Décisions avec l'alternative rejetée ; Risques ; Questions ouvertes qui ne changent
+      ni les specs ni les tâches. Une décision difficile à inverser, qui surprendrait un lecteur futur et
+      qui résulte d'un vrai compromis ne reste pas ici : elle monte dans pilotage/DECISIONS.md par
+      l'intégrateur, après le pilote.
+    requires:
+      - proposal
+
+  - id: tasks
+    generates: tasks.md
+    description: Les étapes cochables, par groupe numéroté
+    template: tasks.md
+    instruction: |
+      Écrite par l'intégrateur après la décision du pilote, jamais avant. Groupes numérotés « ## 1. »,
+      cases « - [ ] 1.1 … » ; chaque case dit comment on vérifie qu'elle est faite ; les tests et la
+      documentation d'un groupe sont dans le groupe, pas dans un groupe final. Une ligne par changement
+      ou par groupe dans pilotage/TACHES.md, avec le rôle, la branche et l'état ; les étapes vivent ici.
+    requires:
+      - specs
+      - design
+
+apply:
+  requires: [tasks]
+  tracks: tasks.md
+  instruction: |
+    Le développeur lit entretien.md, proposal.md, les deltas et design.md, puis coche ses cases sur sa
+    branche courte, ses tâches seulement. Check complet vert avant chaque case. Une idée hors du changement
+    va au parking. Un blocage ou un périmètre qui grossit s'écrit dans QUESTIONS.md, jamais absorbé.

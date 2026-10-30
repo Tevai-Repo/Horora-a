@@ -1,0 +1,14 @@
+# Modèle du Kit v0 : la partie commune. Ajouter dessous les sorties de build et les secrets du projet.
+
+# Worktrees des agents, réglages personnels, captures de vérification
+.claude/worktrees/
+.claude/settings.local.json
+.claude/*.png
+CLAUDE.local.md
+
+# Système
+.DS_Store
+Thumbs.db
+*.log
+
+# Propre au projet : sorties de build, caches, secrets (jamais commités, un .exemple versionné à côté)

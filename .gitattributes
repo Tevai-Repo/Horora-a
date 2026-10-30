@@ -1,0 +1,9 @@
+# Fins de ligne : LF dans le dépôt pour tout le texte.
+# Les hooks shell et les scripts cassent avec CRLF, on force LF à l'extraction aussi.
+* text=auto eol=lf
+.githooks/* text eol=lf
+*.sh text eol=lf
+*.ps1 text eol=lf
+
+# Propre au projet : les sources dont l'outil exige CRLF (exemple Delphi : *.pas, *.dfm, *.dpr en CRLF),
+# et les binaires (*.png, *.ico, *.exe binary).
