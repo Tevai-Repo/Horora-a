@@ -88,6 +88,10 @@ Ils changent un scénario ; l'étude recommande, le pilote tranche avec l'option
 - Une tâche dite sans accès à Internet : refusée avec un message, la phrase reste dans le champ (specs/taches, test-26). Recommandé : oui ; la garder sur l'appareil pour l'envoyer plus tard va au parking.
 - Le mot de passe : choisi à la toute première ouverture d'Horora'a ; oublié, il se remplace depuis un appareil encore connecté. Recommandé : oui ; sans appareil connecté, la remise passe par l'hébergement, hors de l'application.
 
+## Sondage
+
+FTS5 dans `node:sqlite`, fait par l'étude le 2026-10-30 : disponible (Node 24.15.0, SQLite 3.51.3, ENABLE_FTS5 ; une table fts5 répond à MATCH). Méthode : script jetable d'une dizaine de lignes, hors dépôt, supprimé ; 2 minutes. Détail dans design.md, question ouverte 4.
+
 ## Impact
 
 - ROADMAP.md : quatre jalons à venir, dans l'ordre, « ranger », « joindre » (changement déjà ouvert), « dater », « parler » (question-entretien-53) ; le prototype jetable de la vue par étiquette avant la spec de « ranger » (question-entretien-52).

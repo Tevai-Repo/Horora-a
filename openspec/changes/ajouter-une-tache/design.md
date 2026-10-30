@@ -111,4 +111,4 @@ Ne changent ni les specs ni l'approche ; changent la liste de test manuel.
 1. Le téléphone du pilote : **Android**, répondu le 2026-10-30. Chrome installe.
 2. Le navigateur de l'ordinateur : Chrome, Edge ou Firefox ? Avec Firefox, pas d'icône de bureau.
 3. En B1 : la box accepte-t-elle l'ouverture du port 443 vers le poste ? Un fait à vérifier par le pilote avant d'ouvrir le jalon.
-4. Sondage à faire par l'étude avant les tâches, une heure, chiffre seul, accepté par le pilote le 2026-10-30 : Node 24.15 embarque-t-il FTS5 dans `node:sqlite` ? Sinon, `LIKE` jusqu'à « ranger ».
+4. Sondage fait par l'étude le 2026-10-30, accepté par le pilote le même jour : **FTS5 disponible**. `node:sqlite` de Node 24.15.0 embarque SQLite 3.51.3 compilé avec ENABLE_FTS3, ENABLE_FTS3_PARENTHESIS et ENABLE_FTS5 ; une table virtuelle fts5 se crée et répond à MATCH. La recherche de « ranger » peut s'en servir, sans dépendance. Méthode : script jetable d'une dizaine de lignes, hors dépôt, supprimé ; 2 minutes.

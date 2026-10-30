@@ -4,7 +4,7 @@
 
 | Jalon | Contenu | Critère visible | État |
 |---|---|---|---|
-| `jalon-1` | `ajouter-une-tache` (decision-2), pile A1 et B1 (decision-3) | Horora'a installé sur le téléphone et l'ordinateur ; une tâche dite en une phrase, rangée au bon endroit, retrouvée sur l'autre appareil | À faire : tâches après le sondage de l'étude |
+| `jalon-1` | `ajouter-une-tache` (decision-2), pile A1 et B1 (decision-3) | Horora'a installé sur le téléphone et l'ordinateur ; une tâche dite en une phrase, rangée au bon endroit, retrouvée sur l'autre appareil | À faire : sondage fait ; s'ouvre après la question-3 (équipage) |
 | `jalon-2` | `joindre-des-fichiers` (decision-4) | une capture collée sur l'ordinateur, vue sur le téléphone | À faire, après jalon-1 |
 
 Changements annoncés par le pilote, pas encore instruits, dans l'ordre (question-entretien-53) : « ranger » (vue par étiquette, recherche, renommer et déplacer ; prototype jetable avant la spec), « dater », « parler ».

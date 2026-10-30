@@ -27,3 +27,10 @@
 - Fait : Décision du pilote remplie dans les deux proposal.md ; decision-2 à decision-5 ; trois lignes au registre des dépendances ; choix reporté dans design.md ; questions 2, 4, 5 et 6 actées, celles de l'étude renumérotées 5 et 6 ; « Utilisateur » ajouté aux mots et « le pilote » remplacé par « l'utilisateur » dans les scénarios des deltas (question-4, (a)) ; ROADMAP.md avec jalon-1, jalon-2 et deux entrées au parking ; ETAT.md.
 - Pas fait : tasks.md et TACHES.md, qui attendent le sondage ; CONTRAT.md, la zone de code, check.ps1 et SECURITY.md, qui attendent l'ouverture de jalon-1.
 - Blocages par un contrôle : aucun.
+
+## 2026-10-30, integrateur : sondage FTS5
+
+- 12:38 : le pilote demande d'envoyer à l'étude « pour lancer le questionnaire », sans nommer le sujet ; message envoyé à la session Etude, sujet à faire préciser au pilote.
+- Réponse de l'étude : sondage FTS5 fait, disponible (Node 24.15.0, SQLite 3.51.3), 2 minutes, script jetable hors dépôt ; reporté par l'intégrateur dans design.md et proposal.md d'ajouter-une-tache, ETAT.md, ROADMAP.md.
+- Questionnaire : pas ouvert, sujet non nommé.
+- Blocages par un contrôle : aucun.
