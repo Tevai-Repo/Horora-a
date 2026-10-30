@@ -11,3 +11,11 @@
 - Blocages par un contrôle : aucun.
 - Écarts relevés entre la procédure et le Kit : les liens vers docs/ de la fabrication (exemple-gemini, lexique, niveaux-de-regles) n'existent pas dans ..\kit-v0\ ; le README de roles/ n'a pas été copié ; controle-spec est vert sur zéro spec, prévu par openspec/README.md du Kit mais en tension avec la règle du zéro.
 - Livré : commit « harnais(pilotage): Kit v0 installé », étiquette kit-v0.
+
+## 2026-10-30, integrateur : SPEC.md du pilote
+
+- Demande du pilote, 2026-10-29 : relancer `git push -u origin main --follow-tags`, refusé la première fois par la permission de la session. Fait : main poussé ; l'étiquette légère kit-v0 poussée à part, --follow-tags ne pousse que les étiquettes annotées.
+- 2026-10-30 : le pilote annonce avoir rempli SPEC.md, sections 1, 2, 4 et 7 ; l'en-tête du fichier dit « dictées par le pilote, tapées par le laboratoire d'Harnais ». Contenu : 3 visions, 7 mots, 1 capacité (« Ajouter une tâche »), 2 lignes hors périmètre.
+- Fait par l'intégrateur : vision recopiée dans AGENTS.md et la description de harnais.toml (question-1, option recommandée, appliquée en attendant) ; question-4 posée (« pilote » désigne à la fois la personne qui se sert du produit et celle qui pilote le harnais).
+- Blocages par un contrôle : aucun.
+- Livré : un commit sur main.

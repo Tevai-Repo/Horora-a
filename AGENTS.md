@@ -5,7 +5,7 @@
 Fichier maître, lu par tout outil d'agent (Claude Code l'importe via CLAUDE.md). Lire dans cet ordre en début de session : ce fichier, pilotage/ETAT.md, pilotage/TACHES.md, puis ton fichier de rôle dans pilotage/roles/. Ces quatre fichiers ont une taille limitée (controle-taille). Ne lis pas au démarrage pilotage/archives/ ni pilotage/comptes-rendus/ : on y cherche sur besoin. Ton rôle t'est donné par le premier message du pilote dans la session (« Tu es l'agent <rôle> »). Sans rôle annoncé, demande-le avant toute action.
 
 ## Vision
-À écrire par le pilote dans pilotage/SPEC.md, section 1 (vision-1 à vision-3), première action après l'installation ; recopiée ici en deux à quatre lignes ensuite. Projet neuf : aucun code n'existe avant la spec. Périmètre : pilotage/SPEC.md fait foi.
+Un gestionnaire de tâches pour une seule personne, sécurisé, aussi facile à ouvrir sur le téléphone que sur l'ordinateur (vision-1). Chaque tâche a une seule place dans la hiérarchie projet, jalon, liste (vision-2), et on la dicte comme à quelqu'un, à la voix ou depuis un agent, pour qu'il la range au bon endroit (vision-3). Projet neuf : aucun code n'existe avant la spec. Périmètre : pilotage/SPEC.md fait foi.
 
 ## Principes non négociables
 - **Périmètre fermé.** Toute idée hors de SPEC.md et de openspec/specs/ va dans le parking de ROADMAP.md, jamais dans le code. Un besoin entre par un changement, openspec/changes/`<nom>`/ : entretien, proposition, deltas, décision du pilote, puis tâches ; jamais par une tâche directe.

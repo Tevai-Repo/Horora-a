@@ -28,6 +28,11 @@ Format d'un bloc :
 - **Options** : (a) Duo ; (b) Équipe ; (c) Solo. Pas de recommandation de l'intégrateur : la taille du projet n'est pas encore connue (SPEC.md vide).
 - **Réponse** :
 
+### question-4, 2026-10-30, integrateur : « pilote » désigne deux rôles
+- **Bloque** : rien tout de suite ; l'entretien de la première capacité, dont les scénarios nommeront la personne qui ajoute une tâche.
+- **Options** : (a) ajouter à « Les mots » un mot pour la personne qui se sert du produit, par exemple « utilisateur », et garder « pilote » pour le harnais, recommandé ; (b) garder « pilote » dans les deux sens, puisque c'est la même personne.
+- **Réponse** :
+
 ## Actées
 
 Aucune.

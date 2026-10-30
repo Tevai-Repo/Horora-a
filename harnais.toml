@@ -2,7 +2,7 @@
 nom = "Horora'a"
 etage = 1
 origine = "neuf"                   # dépôt vide à l'installation : aucun code antérieur au Kit (decision-fabrication-12)
-description = "à écrire par le pilote : ce que le logiciel fait, pour qui (question-1)"
+description = "gestionnaire de tâches pour une seule personne, sur téléphone et ordinateur, rangées dans une hiérarchie et dictées à la voix"   # recopié de vision-1 à vision-3, appliqué en attendant (question-1)
 pilote = "Tevai"
 mere = "mere"                      # pilotage/roles/mere.md
 main_qui_ecrit = "integrateur"     # pilotage/roles/integrateur.md
